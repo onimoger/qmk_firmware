@@ -45,5 +45,9 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
                                 }
 #endif
 
+/* ws2812 RGB LED */
+#define RGB_DI_PIN D3
+#define RGBLED_NUM 14    // Number of LEDs
+#define RGBLIGHT_ANIMATIONS
 
 #endif
