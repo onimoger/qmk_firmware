@@ -1,5 +1,4 @@
-#ifndef I2C_H
-#define I2C_H
+#pragma once
 
 #include <stdint.h>
 
@@ -25,7 +24,9 @@
 #define SLAVE_BUFFER_SIZE 0x20
 
 // i2c SCL clock frequency
-#define SCL_CLOCK  400000L
+#ifndef SCL_CLOCK
+#define SCL_CLOCK  100000L
+#endif
 
 // Support 8bits right now (8 cols) will need to edit to take higher (code exists in delta split?)
 extern volatile uint8_t i2c_slave_buffer[SLAVE_BUFFER_SIZE];
@@ -56,5 +57,3 @@ extern unsigned char i2c_readNak(void);
 extern unsigned char i2c_read(unsigned char ack);
 
 #define i2c_read(ack)  (ack) ? i2c_readAck() : i2c_readNak();
-
-#endif
